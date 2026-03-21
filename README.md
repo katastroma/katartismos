@@ -1,34 +1,32 @@
 # Katartismos
 
-Provisioner interface for GitOps on Kubernetes. Defines the contract for
-answering: **how do we make them exist?**
+Provisioner interface for GitOps on Kubernetes. Defines the gRPC service
+contract for applying manifests to a cluster and pruning resources no longer in
+the rendered output.
 
-## What This Is
-
-A Go module containing an interface definition and its associated types. Not a
-controller, not a server, not a CLI. It is the contract that provisioners
-implement.
-
-A provisioner takes a resource inventory — the set of Kubernetes resources that
-should exist — and applies, deletes, or diffs them against a cluster.
+A provisioner takes manifests and applies them to the cluster using server-side
+apply with Kubernetes impersonation. It prunes resources labeled with the
+tenant's identity that are no longer present in the current render.
 
 ## Why It Exists
 
-Every GitOps system provisions resources, but they all do it internally, tightly
-coupled to their own reconcile and resolution logic. Katartismos extracts the
-operation into a standalone interface so that:
+Provisioning is one of three fundamental GitOps operations (fetch, render,
+provision). Katartismos extracts the provisioning contract so that:
 
-- Provisioner implementations are independently testable
-- Orchestrators can swap provisioners without changing their reconcile loop
-- The ecosystem can converge on a shared contract — a native Kubernetes
-  implementation, a Flux-based adapter, or an ArgoCD-backed service can all
-  satisfy the same interface
+- Provisioner implementations are independently testable and deployable
+- The orchestrator ([pharos](https://github.com/katastroma/pharos)) can call
+  any provisioner that satisfies the contract
+- The ecosystem can converge on a shared contract instead of each project
+  coupling provisioning into a monolith
 
 ## Ecosystem
 
-Katartismos is one of two GitOps primitive interfaces defined by
-[katastroma](https://github.com/katastroma). The other is
-[keleustēs](https://github.com/katastroma/keleustes) (the resolver interface).
+Katartismos is one of three GitOps service interfaces defined by
+[katastroma](https://github.com/katastroma):
 
-[Histia](https://github.com/katastroma/histia) is katastroma's reference
-provisioner implementation.
+- [naukleros](https://github.com/katastroma/naukleros) — retriever interface
+- [keleustēs](https://github.com/katastroma/keleustes) — renderer interface
+- **katartismos** (this) — provisioner interface
+
+[Histia](https://github.com/katastroma/histia) is katastroma's provisioner
+implementation.
