@@ -12,13 +12,13 @@ service ProvisionerService {
 
 // Streamed manifests to be applied.
 //
-// tenant and deployer_sa are read from the
-// first message only — they do not change across the stream. Consider using a
-// oneof to separate metadata from data chunks if this becomes a concern.
+// labels and service_account are read from the first message only — they do
+// not change across the stream. Consider using a oneof to separate metadata
+// from data chunks if this becomes a concern.
 message ProvisionRequest {
   bytes data = 1;
-  string tenant = 2;
-  string deployer_sa = 3;
+  map<string, string> labels = 2;
+  string service_account = 3;
 }
 
 // Provision result.
