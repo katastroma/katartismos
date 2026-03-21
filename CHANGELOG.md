@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.1 - 2026-03-21
+#### Bug Fixes
+- katarstismos don't need to know about tenants - (428fd64) - Nathan Blair
+
+- - -
+
 ## 0.2.0 - 2026-03-21
 #### Features
 - initial release - (7a13afb) - Nathan Blair
