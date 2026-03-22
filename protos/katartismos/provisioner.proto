@@ -10,11 +10,9 @@ service ProvisionerService {
   rpc Provision(stream ProvisionRequest) returns (ProvisionResponse);
 }
 
-// Streamed manifests to be applied.
-//
-// labels and service_account are read from the first message only — they do
-// not change across the stream. Consider using a oneof to separate metadata
-// from data chunks if this becomes a concern.
+// Streamed manifests to be applied. Every message carries labels and
+// service_account so each message is self-contained — no state to lose
+// on reconnect or mid-stream failure.
 message ProvisionRequest {
   bytes data = 1;
   map<string, string> labels = 2;
