@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.2 - 2026-03-22
+#### Bug Fixes
+- actually include the platform labels - (8f6299c) - Nathan Blair
+- publish platform labels and address optimization - (25e5a77) - Nathan Blair
+
+- - -
+
 ## 0.2.1 - 2026-03-21
 #### Bug Fixes
 - katarstismos don't need to know about tenants - (428fd64) - Nathan Blair
