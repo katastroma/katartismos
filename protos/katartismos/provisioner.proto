@@ -4,20 +4,5 @@ package katartismos;
 
 option go_package = "github.com/katastroma/katartismos";
 
-// ProvisionerService applies manifests to a cluster and prunes resources
-// no longer in the rendered output.
-service ProvisionerService {
-  rpc Provision(stream ProvisionRequest) returns (ProvisionResponse);
-}
-
-// Streamed manifests to be applied. Every message carries labels and
-// service_account so each message is self-contained — no state to lose
-// on reconnect or mid-stream failure.
-message ProvisionRequest {
-  bytes data = 1;
-  map<string, string> labels = 2;
-  string service_account = 3;
-}
-
-// Provision result.
-message ProvisionResponse {}
+// ProvisionerService is the client-facing API for provisioner implementations.
+service ProvisionerService {}
