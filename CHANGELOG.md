@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.3.0 - 2026-03-24
+#### Features
+- back to exposing Provision rpc - (ed1b5ee) - Nathan Blair
+#### Documentation
+- defines client API - (5b53e2c) - Nathan Blair
+- clean up docs - (9296c27) - Nathan Blair
+#### Refactoring
+- expose client API service - (ec260bc) - Nathan Blair
+
+- - -
+
 ## 0.2.2 - 2026-03-22
 #### Bug Fixes
 - actually include the platform labels - (8f6299c) - Nathan Blair
