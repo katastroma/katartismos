@@ -4,5 +4,17 @@ package katartismos;
 
 option go_package = "github.com/katastroma/katartismos";
 
-// ProvisionerService is the client-facing API for provisioner implementations.
-service ProvisionerService {}
+// ProvisionerService applies ordered Kubernetes manifests to a cluster.
+service ProvisionerService {
+  rpc Provision(stream ProvisionRequest) returns (ProvisionResponse);
+}
+
+// Streamed ordered Kubernetes manifest with tenant context.
+message ProvisionRequest {
+  bytes manifest = 1;
+  map<string, string> labels = 2;
+  string service_account = 3;
+}
+
+// Result of provisioning.
+message ProvisionResponse {}
