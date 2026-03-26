@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.1 - 2026-03-26
+#### Bug Fixes
+- (**cd**) cog handles CD trigger - (2b606ce) - Nathan Blair
+
+- - -
+
 ## 0.4.0 - 2026-03-24
 #### Features
 - use buf for generating proto output - (4f7e860) - Nathan Blair
