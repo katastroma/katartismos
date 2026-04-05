@@ -4,17 +4,17 @@ package katartismos;
 
 option go_package = "github.com/katastroma/katartismos";
 
-// ProvisionerService applies ordered Kubernetes manifests to a cluster.
+// ProvisionerService applies Kubernetes manifests to a cluster.
 service ProvisionerService {
-  rpc Provision(stream ProvisionRequest) returns (ProvisionResponse);
+  rpc Provision(stream ProvisionRequest) returns (stream ProvisionResponse);
 }
 
-// Streamed ordered Kubernetes manifest with tenant context.
+// Streamed Kubernetes manifest.
 message ProvisionRequest {
   bytes manifest = 1;
-  map<string, string> labels = 2;
-  string service_account = 3;
 }
 
-// Result of provisioning.
-message ProvisionResponse {}
+// Provisioned Kubernetes manifest.
+message ProvisionResponse {
+  bytes manifest = 1;
+}
