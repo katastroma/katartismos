@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.3 - 2026-04-05
+#### Bug Fixes
+- katartismos streams and uses gRPC metadata - (e092c72) - Nathan Blair
+#### Documentation
+- reflect updated role - (fc28f72) - Nathan Blair
+- use org CONTRIBUTING.md - (8630897) - Nathan Blair
+#### Miscellaneous Chores
+- (**docs**) add doc comments for exported symbols - (fbe22cb) - Nathan Blair
+
+- - -
+
 ## 0.4.2 - 2026-03-26
 #### Bug Fixes
 - (**cd**) don't trigger on generated files - (5045b8f) - Nathan Blair
