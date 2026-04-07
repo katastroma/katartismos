@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.4 - 2026-04-07
+#### Bug Fixes
+- allow both client and bidi streams - (d732676) - Nathan Blair
+
+- - -
+
 ## 0.4.3 - 2026-04-05
 #### Bug Fixes
 - katartismos streams and uses gRPC metadata - (e092c72) - Nathan Blair
