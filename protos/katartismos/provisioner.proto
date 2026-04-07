@@ -6,7 +6,18 @@ option go_package = "github.com/katastroma/katartismos";
 
 // ProvisionerService applies Kubernetes manifests to a cluster.
 service ProvisionerService {
-  rpc Provision(stream ProvisionRequest) returns (stream ProvisionResponse);
+  rpc ProvisionStream(stream ProvisionStreamRequest) returns (stream ProvisionStreamResponse);
+  rpc Provision(stream ProvisionRequest) returns (ProvisionResponse);
+}
+
+// Streamed Kubernetes manifest.
+message ProvisionStreamRequest {
+  bytes manifest = 1;
+}
+
+// Provisioned Kubernetes manifest.
+message ProvisionStreamResponse {
+  bytes manifest = 1;
 }
 
 // Streamed Kubernetes manifest.
@@ -15,6 +26,4 @@ message ProvisionRequest {
 }
 
 // Provisioned Kubernetes manifest.
-message ProvisionResponse {
-  bytes manifest = 1;
-}
+message ProvisionResponse {}
